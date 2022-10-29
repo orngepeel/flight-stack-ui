@@ -9,12 +9,13 @@ export const Search = () => {
     const [arr_airport, setArr_airpoirt] = useState('');
     const [dep_date, setDep_date] = useState('');
     const [ret_date, setRet_date] = useState('');
+    const [num_passengers, setNum_passengers] = useState(1);
     const [round_trip, setRound_trip] = useState(false);
 
     const searchFunc = async () => {
         const response = await fetch(`${URL}/`, {
             method: 'POST',
-            body: "",
+            body: round_trip,
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -62,6 +63,13 @@ export const Search = () => {
                     placeholder="return date"
                     value={ret_date}
                     onChange={e => setRet_date(e.target.value)} />
+                <label htmlFor='num_passengers'>Number of Passengers: </label>
+                <input
+                    id='num_passengers'
+                    type="number"
+                    placeholder="# Passengers"
+                    value={num_passengers}
+                    onChange={e => setNum_passengers(e.target.value)} />
                 <input type="radio" id="one_way" name="round_trip" value={false} onSelect={e => setRound_trip(e.target.value)}/>
                 <label htmlFor="one_way">One Way</label>
                 <input type="radio" id="round_trip" name="round_trip" value={true} onSelect={e => setRound_trip(e.target.value)}/>
