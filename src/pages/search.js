@@ -13,7 +13,7 @@ export const Search = () => {
 
     const searchFunc = (e) => {
         e.preventDefault()
-        navigate('/swipe')
+        navigate('/swipe');
     };
 
     return (
