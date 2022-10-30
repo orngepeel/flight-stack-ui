@@ -13,7 +13,7 @@ export function Swipe () {
     const [isComp, setIsComp] = useState(false);
     const [flightCompare, setFlightCompare] = useState([]);
     
-    const data = JSON.parse({
+    const data = JSON.parse(`{
         "status": true,
         "message": "Success",
         "timestamp": 1667073318916,
@@ -2076,7 +2076,7 @@ export function Swipe () {
                 }
             ]
         }
-    })
+    }`)
 
     const saveFlight = (flight) => {
         setFlightCompare(current => [...current, flight])
@@ -2117,16 +2117,12 @@ export function Swipe () {
                         <div
                         className='card'
                         >
-                            <div>
-                                <h2>{`Total Price: $${flight.purchaseLinks[0].totalPrice}`}</h2>
-                                <h2>{`Price per Passenger: $${flight.purchaseLinks[0].totalPricePerPassenger}`}</h2>
-                                <h2 className="date">{`Depart: ${formatDate(flight.segments[0].legs[0].departureDateTime)}`}</h2>
-                                <h2 className="date">{`Arrive: ${formatDate(flight.segments[0].legs[flight.segments[0].legs.length - 1].arrivalDateTime)}`}</h2>
-                                <img src={flight.segments[0].legs[0].operatingCarrier.logoUrl} alt={`${flight.segments[0].legs[0].operatingCarrier.displayName} logo.`}></img>
-                            </div>
-                            <div>
-                                <h3>{`${flight.segments[0].legs[0].originStationCode} -> ${flight.segments[0].layovers.length} connections -> ${flight.segments[0].legs[flight.segments[0].legs.length - 1].destinationStationCode}`}</h3>
-                            </div>
+                            <h2>{`Total Price: $${flight.purchaseLinks[0].totalPrice}`}</h2>
+                            <h2>{`Price per Passenger: $${flight.purchaseLinks[0].totalPricePerPassenger}`}</h2>
+                            <h2 className="date">{`Depart: ${formatDate(flight.segments[0].legs[0].departureDateTime)}`}</h2>
+                            <h2 className="date">{`Arrive: ${formatDate(flight.segments[0].legs[flight.segments[0].legs.length - 1].arrivalDateTime)}`}</h2>
+                            <img src={flight.segments[0].legs[0].operatingCarrier.logoUrl} alt={`${flight.segments[0].legs[0].operatingCarrier.displayName} logo.`}></img>
+                            <h3>{`${flight.segments[0].legs[0].originStationCode} -> ${flight.segments[0].layovers.length} connections -> ${flight.segments[0].legs[flight.segments[0].legs.length - 1].destinationStationCode}`}</h3>
                         </div>
                     </TinderCard>
                     ))}

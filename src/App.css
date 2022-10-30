@@ -51,7 +51,7 @@ body {
 h1 {
   font-family: 'Goldman', display;
   color: #0b3954ff;
-  text-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+  text-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10);
 }
 
 h2 {
@@ -112,8 +112,8 @@ img {
   background-color: #edebd7ff;
   width: 80vw;
   max-width: 260px;
-  height: 350px;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.20);
+  height: 380px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10);
   border-radius: 20px;
   background-size: cover;
   background-position: center;
@@ -126,7 +126,6 @@ img {
 
 .card h3 {
   font-family: 'Roboto', sans-serif;
-  position: absolute;
   bottom: 0;
   margin: 10px;
   color: #0b3954ff;
@@ -152,11 +151,15 @@ h3 {
 }
 
 .toggle {
-  margin: 2em;
+  margin: 4em;
   padding: 1em;
   font-size: 24;
   font-family: 'Roboto', sans-serif;
   display: block;
+  background-color: #0b3954ff;
+  border: 1px solid #0b3954ff;
+  border-radius: 20px;
+  color: #edebd7ff;
 }
 
 .wrapper {
@@ -169,7 +172,7 @@ h3 {
   position: relative;
   width: 180vw;
   max-width: 500px;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.20);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10);
   border-radius: 20px;
   background-size: cover;
   background-position: center;
@@ -178,6 +181,7 @@ h3 {
 .comparison {
   display: flex;
   flex-direction: column;
+  padding: 5%;
 }
 
 .aLink {
@@ -186,7 +190,7 @@ h3 {
 
 .form {
   font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+  font-size: 1.5em;
   display: flex;
   flex-direction: column;
   background-color: #edebd7ff;
@@ -206,6 +210,7 @@ h3 {
   background-color: #edebd7ff;
   border: 1px solid #f58f29ff;
   color: #0b3954ff;
+  font-size: .8em;
   margin: .1em;
 }
 
@@ -221,6 +226,7 @@ h3 {
   border: 1px solid #0b3954ff;
   border-radius: 5px;
   padding: 5px;
+  font-size: 1em;
   margin-top: 5px;
 }
 

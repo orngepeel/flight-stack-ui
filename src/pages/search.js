@@ -17,14 +17,14 @@ export const Search = () => {
     };
 
     return (
-        <div>
+        <div className='wrapper'>
 
             <header>
                 <h1 className='title'>Flight Stack</h1>
                 <Navigation />
             </header>
             <form className='form' onSubmit={e => searchFunc(e)}>
-                <p>Search for flights</p>
+                <p>Search for flights!</p>
                 <label htmlFor='dep_air'>Depart From: </label>
                 <input
                     id='dep_air'
