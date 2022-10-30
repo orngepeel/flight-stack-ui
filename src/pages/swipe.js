@@ -10,6 +10,10 @@ const formatDate = (dateString) => {
 }
 
 export function Swipe ({searchParams}) {
+
+    console.log('searchResult ==>\n\n\n\n\n', searchParams)
+
+
     const [isComp, setIsComp] = useState(false);
     const [flightCompare, setFlightCompare] = useState([]);
     
