@@ -19,7 +19,8 @@ export function Swipe ({searchParams}) {
     
     const loadFlights = async () => {
         const response = await fetch(`${URL}`, searchParams);
-        setData(JSON.parse(response));
+        setData(response);
+        console.log(data)
     }
 
     const saveFlight = (flight) => {
@@ -45,7 +46,7 @@ export function Swipe ({searchParams}) {
 
     useEffect(() => {
         loadFlights();
-    }, []);
+    }, [data]);
 
     if(!isComp) {
         return (
@@ -99,6 +100,7 @@ export function Swipe ({searchParams}) {
                                 <h2 className="date">{`Depart: ${formatDate(flight.segments[0].legs[0].departureDateTime)}`}</h2>
                                 <h2 className="date">{`Arrive: ${formatDate(flight.segments[0].legs[flight.segments[0].legs.length - 1].arrivalDateTime)}`}</h2>
                                 <img src={flight.segments[0].legs[0].operatingCarrier.logoUrl} alt={`${flight.segments[0].legs[0].operatingCarrier.displayName} logo.`}></img>
+                                {/*eslint-disable-next-line*/}
                                 <a className="aLink" href={`${flight.purchaseLinks[0].url}`} target="_blank"><button>Buy</button></a>
                             </div>
                             <div>

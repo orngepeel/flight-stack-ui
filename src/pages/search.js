@@ -11,7 +11,8 @@ export const Search = ({setSearchParams}) => {
     const [num_passengers, setNum_passengers] = useState(1);
     const [round_trip, setRound_trip] = useState(false);
 
-    const searchFunc = () => {
+    const searchFunc = (e) => {
+        e.preventDefault()
         let rt_param;
         round_trip ? rt_param = 'ROUND_TRIP' : rt_param = 'ONE_WAY';
         const request = {
@@ -29,11 +30,12 @@ export const Search = ({setSearchParams}) => {
                 currencyCode: 'USD'
             },
             headers: {
-                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
-                'X-RapidAPI-Host': process.env.X_RapidAPI_Host
+                'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
+                'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
             }
         };
         setSearchParams(request);
+        console.log(request)
         navigate('/swipe')
     };
 
@@ -44,7 +46,7 @@ export const Search = ({setSearchParams}) => {
                 <h1 className='title'>Flight Stack</h1>
                 <Navigation />
             </header>
-            <div className='form'>
+            <form className='form' onSubmit={e => searchFunc(e)}>
                 <p>Search for flights</p>
                 <label htmlFor='dep_air'>Depart From: </label>
                 <input
@@ -87,10 +89,8 @@ export const Search = ({setSearchParams}) => {
                 <label className="radioLabel" htmlFor="round_trip">Round Trip
                     <input type="radio" id="round_trip" name="round_trip" value={true} onSelect={e => setRound_trip(e.target.value)}/>
                 </label>
-                <button
-                    onClick={() => searchFunc()}
-                >Go!</button>
-            </div>
+                <button type='submit'>Go!</button>
+            </form>
         </div>
     );
 }
