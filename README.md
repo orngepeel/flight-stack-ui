@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+### This application was created as part of TechTogetherBoston 2022
+# [Live Demo](https://flight-stack-ui-production.up.railway.app/)
+---
+## Inspiration
+- Swiping dating apps
+- Price comparison APIs
+- It's the Tinder for Flights
+## What it does
+Input search parameters, and start swiping! Is that flight too expensive? Is it on Spirit Airlines? Swipe left! 
+Swipe right on those flights that look reasonably priced, and without too many layovers. Then compare your saved flights to make your final decision.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Flight Stack uses the TripAdvisor API to get flight information based on search parameters, then presents those flights to the user in the form of a stack of swipe-able cards. Cards that are right-swiped are saved for the comparison page.
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+On the comparison page, users can easily compare saved flights, and click through to purchase tickets for their favorite flight.
+## How we built it
+### Backend
+We used the RapidAPI HUB to find the API, used PostMan to test the endpoints, then we used axios to fetch the data in the react app.
+### Frontend
+The frontend is built with React, and uses a node package called react-tinder-card to build the swipe-able cards.
+## Challenges we ran into
+- Finding a free/low-cost API with relatively easy to parse data was a small challenge, but we found one!
+- There were some dependency graph issues with the react-tinder-card package, but after some searching, we were able to get it working.
+- There were some issues with using dotenv with the current version of `create-react-app`. Some refactoring let us get around that issue.
+## Accomplishments that we're proud of
+We're particularly proud of the name of our project. It's a triple-entendre, combining "flight deck", "tech stack", and "stack of cards" into a catchy title for a web app.
+## What we learned
+- We learned how to use the TripAdvisor RapidAPI client.
+- We learned more about working with React and Node.js, and integrating Axios with React.
+- We learned about working with React packages.
+- CSS knowledge is always expanding.
+## What's next for Flight Stack
+We would like to eventually host the application on our `flightstack.tech` domain, and add validation to the form inputs.
