@@ -26,6 +26,7 @@
 
 body {
   background-image: url('../public/cloud-unsplash.jpg');
+  background-attachment: fixed;
 }
 
 .app {
