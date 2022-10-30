@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/navbar';
-import Swipe from './swipe';
 
 export const Search = () => {
     const URL = ""
@@ -12,10 +11,9 @@ export const Search = () => {
     const [ret_date, setRet_date] = useState('');
     const [num_passengers, setNum_passengers] = useState(1);
     const [round_trip, setRound_trip] = useState(false);
-    const [searchParams, setSearchParams] = useState({});
 
     const searchFunc = async () => {
-        const response = await fetch(`${URL}/`, {
+        const response = await fetch(`${URL}`, {
             method: 'POST',
             body: round_trip,
             headers: {
@@ -25,18 +23,7 @@ export const Search = () => {
         if (response.status !== 200) {
             alert(`Oops! Something went wrong.`)
         }
-        setSearchParams({
-            dep_airport: dep_airport,
-            arr_airport: arr_airport,
-            dep_date: dep_date,
-            ret_date: ret_date,
-            num_passengers: num_passengers,
-            round_trip: round_trip
-        })
         navigate('/swipe');
-        return (
-            <Swipe searchParams={searchParams} />
-        )
     };
 
     return (
