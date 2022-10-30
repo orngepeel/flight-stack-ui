@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {FaRegPaperPlane } from 'react-icons/fa';
+import {FaHome, FaListUl } from 'react-icons/fa';
 
 export const Navigation = () => {
     return (
         <nav className='links'>
-            <div className='navButtons'>
-                <ul>
-                    <li><Link to="/"><button className='home'><FaRegPaperPlane /></button></Link></li>
+            <div>
+                <ul className='navButtons'>
+                    <li><Link to="/"><button className='home'><FaHome size={30}/></button></Link></li>
+                    <li><Link to="/compare"><button><FaListUl size={30}/></button></Link></li>
                 </ul>
             </div>
         </nav>

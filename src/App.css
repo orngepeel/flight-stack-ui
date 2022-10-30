@@ -3,6 +3,7 @@
 --blood-red: #6e0e0aff;
 --prussian-blue: #0b3954ff;
 --dark-orange: #f58f29ff; */
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&family=Roboto&display=swap');
 
 #root {
   text-align: center;
@@ -11,8 +12,6 @@
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  /* background: linear-gradient(#fff, #999); */
-  background: linear-gradient(#e66465, #9198e5);
 }
 
 * {
@@ -24,6 +23,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+body {
+  background-image: url('../public/cloud-unsplash.jpg');
 }
 
 .app {
@@ -46,13 +49,13 @@
 }
 
 h1 {
-  font-family: 'Damion', cursive;
-  color: #fff;
+  font-family: 'Goldman', display;
+  color: black;
   text-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
 }
 
 h2 {
-  color: #fff;
+  color: black;
 }
 
 .swipe {
@@ -62,7 +65,33 @@ h2 {
 .cardContainer {
   width: 90vw;
   max-width: 260px;
-  height: 300px;
+  height: 350px;
+  margin: .5em;
+}
+
+img {
+  margin: 10px;
+}
+
+.date {
+  font-size: 95%;
+}
+
+.title {
+  display: block;
+  position: relative;
+  font-size: 5em;
+  margin: auto;
+}
+
+.navButtons li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+}
+
+.navButtons {
+  margin: 0;
 }
 
 .card {
@@ -70,8 +99,8 @@ h2 {
   background-color: #fff;
   width: 80vw;
   max-width: 260px;
-  height: 300px;
-  box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+  height: 350px;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.20);
   border-radius: 20px;
   background-size: cover;
   background-position: center;
@@ -82,16 +111,15 @@ h2 {
   height: 100%;
 }
 
-.swipe:last-of-type {
-
-}
-
 .card h3 {
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   bottom: 0;
   margin: 10px;
   color: black;
 }
+
+
 
 .infoText {
   width: 100%;
@@ -112,25 +140,6 @@ h2 {
   .buttons {
     flex-direction: column;
   }
-}
-
-.buttons button {
-  flex-shrink: 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  background-color: #9198e5;
-  transition: 200ms;
-  margin: 10px;
-  font-weight: bolder;
-  width: 160px;
-  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.10);
-}
-
-.buttons button:hover {
-  transform: scale(1.05);
 }
 
 @keyframes popup {

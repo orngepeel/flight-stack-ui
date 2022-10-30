@@ -1,8 +1,4 @@
-import React from "react";
-import TinderCard from '@nhoon2002/react-tinder-card';
-import Navigation from "../components/navbar";
-
-const data = JSON.parse(`{
+{
     "status": true,
     "message": "Success",
     "timestamp": 1667073318916,
@@ -2065,71 +2061,4 @@ const data = JSON.parse(`{
             }
         ]
     }
-}`)
-
-const formatDate = (dateString) => {
-    const options = { month: "long", day: "numeric", hour: "numeric", minute: "numeric" }
-    return new Date(dateString).toLocaleDateString(undefined, options)
-  }
-
-  export function Swipe (searchParams) {
-
-    
-    
-    const compareFlights = [];
-    
-    const saveFlight = (flight) => {
-        compareFlights.push(flight)
-        console.log(compareFlights)
-    };
-    
-    const swiped = async (direction, flight) => {
-        console.log("removing: " + flight.purchaseLinks[0].purchaseLinkId);
-        console.log(direction)
-        if (direction === 'right') {
-            saveFlight(flight)
-        }
-    };
-
-    const outOfFrame = (flight) => {
-        console.log(flight.purchaseLinks[0].purchaseLinkId + " left the screen!");  
-    };
-
-  return (
-    <div>
-        <header>
-            <h1 className="title">Flight Stack</h1>
-            <Navigation />
-        </header>
-        <div className='cardContainer'>
-            {data.data.flights.map((flight) => (
-            <TinderCard
-            className='swipe'
-            key={flight.purchaseLinks[0].purchaseLinkId}
-            onSwipe={(dir) => swiped(dir, flight)}
-            onCardLeftScreen={() => outOfFrame(flight)}
-            >
-                <div
-                className='card'
-                >
-                    <div>
-                        <h2>{`Total Price: $${flight.purchaseLinks[0].totalPrice}`}</h2>
-                        <h2>{`Price per Passenger: $${flight.purchaseLinks[0].totalPricePerPassenger}`}</h2>
-                        <h2 className="date">{`Depart: ${formatDate(flight.segments[0].legs[0].departureDateTime)}`}</h2>
-                        <h2 className="date">{`Arrive: ${formatDate(flight.segments[0].legs[flight.segments[0].legs.length - 1].arrivalDateTime)}`}</h2>
-                        <img src={flight.segments[0].legs[0].operatingCarrier.logoUrl} alt={`${flight.segments[0].legs[0].operatingCarrier.displayName} logo.`}></img>
-                    </div>
-                    <div>
-                        <h3>{`${flight.segments[0].legs[0].originStationCode} -> ${flight.segments[0].layovers.length} connections -> ${flight.segments[0].legs[flight.segments[0].legs.length - 1].destinationStationCode}`}</h3>
-                    </div>
-                    {}
-                </div>
-            </TinderCard>
-            ))}
-        </div>
-        
-    </div>
-    )
-  }
-
-export default Swipe;
+}
