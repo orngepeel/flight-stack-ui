@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/navbar';
 
-export const Search = () => {
-    const URL = ""
+export const Search = ({setSearchParams}) => {
     const navigate = useNavigate();
     const [dep_airport, setDep_airport] = useState('');
     const [arr_airport, setArr_airpoirt] = useState('');
@@ -12,18 +11,30 @@ export const Search = () => {
     const [num_passengers, setNum_passengers] = useState(1);
     const [round_trip, setRound_trip] = useState(false);
 
-    const searchFunc = async () => {
-        const response = await fetch(`${URL}`, {
-            method: 'POST',
-            body: round_trip,
+    const searchFunc = () => {
+        let rt_param;
+        round_trip ? rt_param = 'ROUND_TRIP' : rt_param = 'ONE_WAY';
+        const request = {
+            method: 'GET',
+            params: {
+                sourceAirportCode: dep_airport,
+                destinationAirportCode: arr_airport,
+                date: dep_date,
+                itineraryType: rt_param,
+                sortOrder: 'PRICE',
+                numAdults: num_passengers,
+                numSeniors: '0',
+                classOfService: 'ECONOMY',
+                returnDate: ret_date,
+                currencyCode: 'USD'
+            },
             headers: {
-                'Content-Type': 'application/json'
+                'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
+                'X-RapidAPI-Host': process.env.X_RapidAPI_Host
             }
-        });
-        if (response.status !== 200) {
-            alert(`Oops! Something went wrong.`)
-        }
-        navigate('/swipe');
+        };
+        setSearchParams(request);
+        navigate('/swipe')
     };
 
     return (
@@ -75,7 +86,7 @@ export const Search = () => {
                 <input type="radio" id="round_trip" name="round_trip" value={true} onSelect={e => setRound_trip(e.target.value)}/>
                 <label htmlFor="round_trip">Round Trip</label>
                 <button
-                    onClick={searchFunc}
+                    onClick={() => searchFunc()}
                 >Go!</button>
             </div>
         </div>
