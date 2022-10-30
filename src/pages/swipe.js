@@ -21,11 +21,10 @@ export function Swipe ({searchParams}) {
     
     const URL = 'https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights';
     
-    const loadFlights = async () => {
-        const response = await fetch(`${URL}`, searchParams);
-        setData(response);
-        console.log(data)
-    }
+    // const loadFlights = async () => {
+    //     const response = await fetch(`${URL}`, searchParams);
+    //     setData(JSON.parse(response));
+    // }
 
     const saveFlight = (flight) => {
         setFlightCompare(current => [...current, flight])
@@ -47,10 +46,6 @@ export function Swipe ({searchParams}) {
         setIsComp(isComp ? false : true);
         console.log(flightCompare)
     }
-
-    useEffect(() => {
-        loadFlights();
-    }, [data]);
 
     if(!isComp) {
         return (
