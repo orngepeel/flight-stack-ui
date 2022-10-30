@@ -44,7 +44,7 @@ export const Search = ({setSearchParams}) => {
                 <h1 className='title'>Flight Stack</h1>
                 <Navigation />
             </header>
-            <div>
+            <div className='form'>
                 <p>Search for flights</p>
                 <label htmlFor='dep_air'>Depart From: </label>
                 <input
@@ -81,10 +81,12 @@ export const Search = ({setSearchParams}) => {
                     placeholder="# Passengers"
                     value={num_passengers}
                     onChange={e => setNum_passengers(e.target.value)} />
-                <input type="radio" id="one_way" name="round_trip" value={false} onSelect={e => setRound_trip(e.target.value)}/>
-                <label htmlFor="one_way">One Way</label>
-                <input type="radio" id="round_trip" name="round_trip" value={true} onSelect={e => setRound_trip(e.target.value)}/>
-                <label htmlFor="round_trip">Round Trip</label>
+                <label className='radioLabel' htmlFor="one_way">One Way
+                    <input type="radio" id="one_way" name="round_trip" value={false} onSelect={e => setRound_trip(e.target.value)}/>
+                </label>
+                <label className="radioLabel" htmlFor="round_trip">Round Trip
+                    <input type="radio" id="round_trip" name="round_trip" value={true} onSelect={e => setRound_trip(e.target.value)}/>
+                </label>
                 <button
                     onClick={() => searchFunc()}
                 >Go!</button>

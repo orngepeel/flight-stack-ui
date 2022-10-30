@@ -32,6 +32,7 @@ body {
   overflow: hidden;
 }
 
+
 .app>div {
   display: flex;
   flex-direction: column;
@@ -90,11 +91,12 @@ img {
 .navButtons li {
   list-style: none;
   display: inline-block;
-  margin: 0 5px 5px 0;
+  margin: 0 30px 5px 0px;
 }
 
 .navButtons {
   margin: 0;
+  align-items: center;
 }
 
 .navButtons button {
@@ -180,6 +182,63 @@ h3 {
 
 .aLink {
   text-decoration: none;
+}
+
+.form {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  background-color: #edebd7ff;
+  padding: 1.5em;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.form p {
+  color: #0b3954ff;
+  margin-top: 0;
+}
+
+.form input {
+  display: block;
+  border-radius: 5px;
+  background-color: #edebd7ff;
+  border: 1px solid #f58f29ff;
+  color: #0b3954ff;
+  margin: .1em;
+}
+
+.form label {
+  display: block;
+  color: #0b3954ff;
+  margin: auto;
+}
+
+.form button {
+  background-color: #0b3954ff;
+  color: #edebd7ff;
+  border: 1px solid #0b3954ff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.form #one_way {
+  display: inline;
+  padding: 5px;
+  margin: 5px;
+}
+
+.form #round_trip {
+  display: inline;
+  padding: 5px;
+  margin: 5px;
+}
+
+.radioLabel {
+  display: inline;
+  margin-right: 5px;
 }
 
 .aLink button{
