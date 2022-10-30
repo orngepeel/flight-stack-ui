@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/navbar';
 
-export const Search = ({setSearchParams}) => {
+export const Search = () => {
     const navigate = useNavigate();
     const [dep_airport, setDep_airport] = useState('');
     const [arr_airport, setArr_airpoirt] = useState('');
@@ -13,29 +13,6 @@ export const Search = ({setSearchParams}) => {
 
     const searchFunc = (e) => {
         e.preventDefault()
-        let rt_param;
-        round_trip ? rt_param = 'ROUND_TRIP' : rt_param = 'ONE_WAY';
-        const request = {
-            method: 'GET',
-            params: {
-                sourceAirportCode: dep_airport,
-                destinationAirportCode: arr_airport,
-                date: dep_date,
-                itineraryType: rt_param,
-                sortOrder: 'PRICE',
-                numAdults: num_passengers,
-                numSeniors: '0',
-                classOfService: 'ECONOMY',
-                returnDate: ret_date,
-                currencyCode: 'USD'
-            },
-            headers: {
-                'X-RapidAPI-Key': process.env.REACT_APP_X_RapidAPI_Key,
-                'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
-            }
-        };
-        setSearchParams(request);
-        console.log(request)
         navigate('/swipe')
     };
 
