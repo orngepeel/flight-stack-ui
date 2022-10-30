@@ -60,7 +60,7 @@ export function Swipe ({searchParams}) {
                     <Navigation />
                 </header>
                 <div className='cardContainer'>
-                    {data.data.flights.map((flight) => (
+                    {searchParams.data.flights.map((flight) => (
                     <TinderCard
                     className='swipe'
                     key={flight.purchaseLinks[0].purchaseLinkId}
